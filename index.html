@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>総社消防救急隊 熱中症対応資料</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans JP', 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%); /* blue-400 to blue-600 */
+        }
+        .section-title {
+            border-left: 5px solid #3b82f6; /* blue-600 */
+            padding-left: 10px;
+            margin-bottom: 1rem;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2563eb; /* blue-700 */
+            margin-bottom: 0.75rem;
+        }
+        .card p, .card ul {
+            margin-bottom: 0.75rem;
+            line-height: 1.8;
+        }
+        .card ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+        }
+        .card strong {
+            color: #1d4ed8; /* blue-800 */
+        }
+        .highlight-box {
+            background-color: #eff6ff; /* blue-50 */
+            border: 1px solid #93c5fd; /* blue-300 */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        .highlight-box strong {
+            color: #1e40af; /* blue-800 */
+        }
+        /* 目次とヘッダーナビの共通スタイル */
+        .toc-nav-item {
+            transition: all 0.3s ease;
+            border-radius: 0.375rem; /* rounded-md */
+            padding: 0.5rem 0.75rem; /* py-2 px-3 */
+        }
+        .toc-nav-item:hover {
+            background-color: #60a5fa; /* blue-400 */
+            color: white;
+        }
+        /* アコーディオンのためのスタイル */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-button.active + .accordion-content {
+            max-height: 1000px; /* 十分な高さを設定 */
+        }
+        .accordion-button svg {
+            transition: transform 0.3s ease;
+        }
+        .accordion-button.active svg {
+            transform: rotate(180deg);
+        }
+
+        /* 左側目次用のスタイル */
+        #table-of-contents {
+            position: sticky;
+            top: 20px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+        }
+        /* ヘッダーナビゲーションのスタイル */
+        #header-navigation {
+            background-color: #e0f2fe; /* light-blue-100 for a subtle background */
+            padding-top: 0.75rem; /* py-3 */
+            padding-bottom: 0.75rem; /* py-3 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        #header-navigation ul {
+            display: flex;
+            flex-wrap: wrap; /* モバイルで折り返し */
+            justify-content: center;
+            gap: 0.5rem; /* space-x-2相当 */
+        }
+        #header-navigation a {
+            color: #1e3a8a; /* blue-800 */
+            font-weight: 600; /* semibold */
+        }
+        #header-navigation a:hover {
+            color: #2563eb; /* blue-600 */
+            background-color: #dbeafe; /* blue-100 */
+        }
+
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <header class="hero-gradient text-white py-8 shadow-lg">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold">総社消防救急隊 熱中症対応資料</h1>
+        </div>
+    </header>
+
+    <nav id="header-navigation" aria-label="ページ内目次">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <ul class="flex flex-wrap justify-center gap-2 md:gap-4">
+                <li><a href="#introduction" class="toc-nav-item">はじめに</a></li>
+                <li><a href="#basics" class="toc-nav-item">基礎知識</a></li>
+                <li><a href="#first-aid" class="toc-nav-item">応急処置</a></li>
+                <li><a href="#transport" class="toc-nav-item">救急搬送</a></li>
+                <li><a href="#event-sites" class="toc-nav-item">イベント会場</a></li>
+                <li><a href="#self-care" class="toc-nav-item">健康管理</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 md:px-6 py-8 flex flex-col lg:flex-row gap-8">
+
+        <aside id="table-of-contents" class="lg:w-1/4 hidden lg:block bg-white p-6 rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold mb-4 text-blue-600">目次</h2>
+            <nav>
+                <ul class="space-y-2">
+                    <li><a href="#introduction" class="block toc-nav-item text-gray-700">1. はじめに</a></li>
+                    <li><a href="#basics" class="block toc-nav-item text-gray-700">2. 熱中症の基礎知識</a></li>
+                    <li><a href="#first-aid" class="block toc-nav-item text-gray-700">3. 現場での応急処置</a></li>
+                    <li><a href="#transport" class="block toc-nav-item text-gray-700">4. 救急搬送と医療連携</a></li>
+                    <li><a href="#event-sites" class="block toc-nav-item text-gray-700">5. イベント会場での対応</a></li>
+                    <li><a href="#self-care" class="block toc-nav-item text-gray-700">6. 救急隊員自身の健康管理</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="lg:w-3/4">
+            <section id="introduction" class="mb-12 pt-16 -mt-16">
+                <h2 class="text-3xl font-bold mb-6 section-title text-gray-700">1. はじめに：熱中症の危険性と救急隊員の役割</h2>
+                <div class="card">
+                    <p>熱中症は、<strong>放置すれば死に直結する緊急事態</strong>です。</p>
+                    <p>熱中症は命に関わる危険な症状であり、甘く判断してはいけません。</p>
+                    <p>救急車が到着するまでの間にも、現場で応急処置を行うことで症状の悪化を防ぐことができます。<strong>迅速かつ適切な対応が救命につながります。</strong></p>
+                </div>
+            </section>
+
+            <section id="basics" class="mb-12 pt-16 -mt-16">
+                <h2 class="text-3xl font-bold mb-6 section-title text-gray-700">2. 熱中症の基礎知識</h2>
+                <div class="card">
+                    <h3>熱中症の発生メカニズム</h3>
+                    <p>蒸し暑い環境に長く居たり、運動を続けると体温が上昇します。</p>
+                    <ul>
+                        <li>体内で発生した熱は血液に移り、熱い血液が体表の皮膚近くの毛細血管に広がり、体外に熱を放出することで体温を下げます。体が熱くなると皮膚が赤く見えるのは、皮膚直下の血管が拡張してたくさんの血液をそこで冷やしているためです。</li>
+                        <li>体から熱を逃す方法（熱放散）には、皮膚表面からの放射、汗の蒸発（気化熱）、液体や固体に移す伝導、風による対流があります。</li>
+                        <li>体から水分が減少したり、発汗によって体内水分量が減少すると、熱を運ぶ血液そのものが減少し、効率よく熱を体外へ逃せなくなってしまいます。</li>
+                        <li>周囲の環境（温度、湿度、日差し、風）が悪かったり、閉め切った室内などでも、体表の熱い血液をうまく冷やせず、熱い血液が体内へ戻って体温がうまく下がりません。</li>
+                        <li>体から水分が減少すると、筋肉や脳、肝臓、腎臓などに十分血液がいきわたらず、筋肉のこむら返り、意識障害、臓器機能障害を引き起こすことがあります。熱（高温）そのものも各臓器の働きを悪化させます。</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>熱中症を引き起こす条件</h3>
+                    <button class="accordion-button w-full text-left bg-blue-500 text-white p-4 rounded-md hover:bg-blue-600 transition-colors flex justify-between items-center">
+                        <span>詳細を表示/非表示</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </button>
+                    <div class="accordion-content bg-white p-4 border border-t-0 rounded-b-md">
+                        <p><strong>環境:</strong> 気温が高い、湿度が高い、風が弱い、日差しが強い、閉め切った室内、エアコンがない、急に暑くなった日、熱波の襲来。</p>
+                        <p><strong>行動:</strong> 激しい運動、慣れない運動、長時間の屋外作業、水分補給がしにくい状況。</p>
+                        <p><strong>からだ:</strong> 高齢者、乳幼児、肥満、体に障害のある人、持病（糖尿病、心臓病、精神疾患など）、低栄養状態、脱水状態（下痢、インフルエンザなど）、体調不良（二日酔い、寝不足など）。心臓疾患、糖尿病、精神神経疾患、広範囲の皮膚疾患なども体温調節が下手になっている状態です。特定の薬剤や飲酒も注意が必要です。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="first-aid" class="mb-12 pt-16 -mt-16">
+                <h2 class="text-3xl font-bold mb-6 section-title text-gray-700">3. 現場での応急処置</h2>
+                <div class="card">
+                    <h3>迅速な対応の必要性</h3>
+                    <p>熱中症を疑った時には、<strong>放置すれば死に直結する緊急事態</strong>であることをまず認識しなければなりません。冷却はできるだけ早く行う必要があります。重症者を救命できるかどうかは、<strong>いかに早く体温を下げることができるか</strong>にかかっています。救急車を要請する場合も、その到着前から冷却を開始することが必要です。</p>
+                </div>
+                <div class="card">
+                    <h3>応急処置の基本</h3>
+                    <p>熱中症が疑われる場合は、以下の応急処置を行います。</p>
+                    <ul>
+                        <li><strong>涼しい環境へ避難:</strong> 風通しのよい日陰や、できればクーラーが効いている室内等に避難させましょう。女性の場合は、処置の内容を考慮して同性の救護者を含めることが勧められますが、重症など急を要する場合は救護作業を優先します。</li>
+                        <li><strong>脱衣と冷却:</strong> 衣服を緩め、体内の熱を外に出します。上着を脱がせ、きついベルトやネクタイ、下着は緩めて風通しを良くします。</li>
+                        <li><strong>水分・塩分の補給:</strong> 冷たい水などを持たせて、自分で飲んでもらいます。</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>重症度別の応急処置</h3>
+                    <ul>
+                        <li><strong>Ⅰ度（軽症）、Ⅱ度（中等症）の場合:</strong> まず、涼しい場所に移し、衣服を緩め、水分と塩分を補給します。処置をしても症状がよくならない場合や、最初から症状が強い場合（嘔吐など）は病院へ搬送します。</li>
+                        <li><strong>Ⅲ度（重症（熱射病））の場合:</strong> 意識障害がある場合などです。救急車を呼ぶことはもちろん、現場ですぐに体を冷やし始めることが必要です。非労作性の場合（高齢者が屋内で重症など）は、できる限り体表冷却や環境の冷房を実施しつつ、なるべく早く医療機関に搬送しましょう。</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>冷却方法</h3>
+                    <p><strong>体表冷却:</strong> 露出させた皮膚を濡らしてうちわや扇風機で扇ぎます。氷やアイスパックなどで冷やすのも良いでしょう。皮膚直下を流れている血液を冷やすことが有効であり、自動販売機やコンビニで手に入れた冷えたペットボトル、かち割氷、氷のうなどを、<strong>前頚部（首の付け根）の両側、腋窩部（脇の下）、鼠径部（大腿の付け根の前面、股関節部）</strong>に広く（またはしっかり）当てます。濡れたタオルを体にあて、扇風機やうちわで風を当て、水を蒸発させ体温を下げる方法もあります。服や下着の上から少しずつ冷やした水をかける方法もあります。ジェルタイプのシートは体を冷やす効果がなく、熱中症治療には効果はありません。</p>
+                    <div class="highlight-box">
+                        <p class="font-semibold text-lg">重要冷却ポイント:</p>
+                        <ul class="list-disc list-inside">
+                            <li><strong>前頚部（首の付け根）の両側</strong></li>
+                            <li><strong>腋窩部（脇の下）</strong></li>
+                            <li><strong>鼠径部（大腿の付け根の前面、股関節部）</strong></li>
+                        </ul>
+                        <p class="mt-2">これらの部位を効果的に冷やすことが重要です。</p>
+                    </div>
+                    <p><strong>積極的な冷却（主に医療機関での処置）:</strong> 労作性の重症熱射病（意識障害）が疑われる場合、「氷水浴／冷水浴法」が最も体温低下率が高く救命につながることが知られています。ただし、必ず医療有資格者を事前に配置し、直腸温を継続的にモニターできる環境で実施して下さい。そのような準備がない場合は、水道につないだホースで全身に水をかけ続ける「水道水散布法」が推奨されます。病院では、胃管や膀胱カテーテルを用いた内部冷却、体外循環、ジェルパッド、血管内カテーテルを用いた方法などが開発・臨床応用されています。重症熱中症において死亡率を改善するためには、点滴加療だけでなく、早急にActive Coolingを含めた集学的治療を行うことが弱く推奨されます。</p>
+                </div>
+                <div class="card">
+                    <h3>水分・塩分補給</h3>
+                    <p>冷たい飲み物は胃の表面から体の熱を奪うとともに水分補給も可能です。冷たい飲み物は温度が低いほう（5〜15℃）が体を冷やす効果が大きいと考えられています。</p>
+                    <p>大量の発汗があった場合には、汗で失われた塩分も適切に補える経口補水液やスポーツドリンク等が最適です。食塩水（水1ℓに1～2gの食塩）も有効です。スポーツドリンクは水分とミネラルを同時に補給できますが、糖分が多い点に注意が必要です。飲みすぎには注意し、麦茶なども良いでしょう。</p>
+                    <h4 class="font-semibold text-lg mt-4 mb-2 text-blue-600">注意点:</h4>
+                    <ul>
+                        <li>呼びかけへの反応が悪い場合や、意識がない、意識障害がある場合は、誤って水分が気道に流れ込む可能性があります。<strong>無理に水を飲ませてはいけません。</strong></li>
+                        <li>吐き気を訴える、または吐くという症状は、すでに胃腸の動きが鈍っている証拠です。これらの場合には、口から水分を飲んでもらうのは禁物です。<strong>すぐに病院での点滴が必要です。</strong></li>
+                        <li>意識がはっきりしているなら、冷やした水分を口からどんどん与えてください。</li>
+                        <li>かかりつけ医から水分や塩分の制限をされている場合は、よく相談の上、その指示に従いましょう。</li>
+                        <li>コーヒーや緑茶などのカフェインが多く含まれる飲み物、アルコール類は利尿作用があるので適しません。</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="transport" class="mb-12 pt-16 -mt-16">
+                <h2 class="text-3xl font-bold mb-6 section-title text-gray-700">4. 救急搬送と医療連携</h2>
+                <div class="card">
+                    <h3>医療機関への搬送判断</h3>
+                    <ul>
+                        <li>最初から症状が強い場合、嘔吐、吐き気などで水分補給ができない、処置をしても症状が良くならない場合には、病院へ搬送します（中等症以上）。</li>
+                        <li>熱中症を疑う症状があり、<strong>意識がない、または呼びかけに対する返事がおかしい場合は、すぐに救急車を呼びましょう。</strong></li>
+                        <li>意識がある場合でも、水分を自力で摂取できない場合は、塩分を含め点滴で補う必要があるので、緊急で医療機関に搬送することが最優先の対処方法です。</li>
+                        <li>重症（Ⅲ度）の場合は救急車を呼びます。</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>搬送中の対応</h3>
+                    <p>救急車を要請する場合も、その到着前から冷却を開始することが必要です。救急車を待っているあいだにも、現場で応急処置をすることで症状の悪化を防ぐことができます。</p>
+                </div>
+                <div class="card">
+                    <h3>医療機関への情報伝達</h3>
+                    <p>居合わせた最も状況がよくわかる人が医療機関まで付き添って、発症までの経過や発症時の症状等を伝えるようにしましょう。</p>
+                    <div class="highlight-box">
+                        <p>特に<strong>「暑い環境」で「それまで元気だった人が突然倒れた」といった熱中症を強く疑わせる情報は、医療機関が熱中症の処置を即座に開始するために大事な情報</strong>ですので、積極的に伝えましょう。</p>
+                    </div>
+                    <p>情報が十分に伝わらない場合（意識障害の患者として診断に手間取る等）、熱中症に対する処置を迅速に行えなくなる恐れもあります。</p>
+                    <h4 class="font-semibold text-lg mt-4 mb-2 text-blue-600">医療機関が知りたいこと（熱中症の疑いがある患者について）:</h4>
+                    <button class="accordion-button w-full text-left bg-blue-500 text-white p-4 rounded-md hover:bg-blue-600 transition-colors flex justify-between items-center mt-2">
+                        <span>詳細を表示/非表示</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                        </svg>
+                    </button>
+                    <div class="accordion-content bg-white p-4 border border-t-0 rounded-b-md">
+                        <ul>
+                            <li><strong>様子がおかしくなるまでの状況:</strong> 食事・水分塩分摂取、場所、環境、活動内容、服装など</li>
+                            <li><strong>不調になった時の状況:</strong> 失神、頭痛、めまい、嘔吐、体温、脈拍、呼吸、意識状態、けいれん、運動障害、高体温など</li>
+                            <li><strong>最近の状況:</strong> 活動、体調、睡眠、飲酒など</li>
+                            <li><strong>その他:</strong> 身長体重、既往歴、服用薬、飲酒喫煙、感染症の可能性など</li>
+                        </ul>
+                        <p class="mt-2">これらの内容をあらかじめ整理して伝えると良いでしょう。</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="event-sites" class="mb-12 pt-16 -mt-16">
+                <h2 class="text-3xl font-bold mb-6 section-title text-gray-700">5. イベント会場など特殊な状況での対応</h2>
+                <div class="card">
+                    <p>夏季のイベントでは熱中症が発生する可能性が高いため、イベント主催者は傷病者発生時のマニュアル作成、救護所の設置、医療機関との連携体制構築などが重要です。</p>
+                    <ul>
+                        <li>大規模イベントでは、医療救護所を設置し、医師を配置して現場で初期治療と医療機関搬送の要否判断を行う体制や、傷病者発生連絡を受けて救命士等が出動・判断し救急車を要請する体制などが一般的です。</li>
+                        <li>傷病者発生場所の特定方法や搬送ルートを予め規定し、対応スタッフグループ、応援スタッフグループ、輸送経路を明示することが重要です。</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="self-care" class="mb-12 pt-16 -mt-16">
+                <h2 class="text-3xl font-bold mb-6 section-title text-gray-700">6. 救急隊員自身の健康管理と予防</h2>
+                <div class="card">
+                    <h3>暑熱順化</h3>
+                    <p>熱中症の予防には、暑い環境に体を慣れさせること（暑熱順化）が重要です。本格的な暑さの前から徐々に体を慣れさせることで、熱中症になりにくくなります。<strong>GW明けくらいから汗をかく程度の活動で計画的に暑さに慣れさせることが対策として挙げられています。</strong>暑熱順化が熱中症の発症予防に有用である可能性が示唆されています。</p>
+                </div>
+                <div class="card">
+                    <h3>体調管理</h3>
+                    <p>毎日の仕事前に体調を確認し、前日の飲酒等による脱水状態、欠食、睡眠不足、体調不良があれば暑熱作業から外すといった対策が示されています。バランスのよい食事やしっかりとした睡眠をとり、丈夫な体をつくることが大切です。</p>
+                </div>
+                <div class="card">
+                    <h3>水分・塩分補給</h3>
+                    <p>のどが渇いていなくても、こまめに水分をとりましょう。大量の発汗があった場合は塩分も一緒に補給しましょう。</p>
+                </div>
+                <div class="card">
+                    <h3>装備</h3>
+                    <p><strong>隊員は、アイスベストや導入予定の空調服を積極活用しましょう。帰署後に顔面や上腕を水道水で冷やすことも効果があります。</strong></p>
+                </div>
+                <div class="card">
+                    <h3>情報の確認</h3>
+                    <p><strong>暑さ指数（WBGT）の予報や気象予報を常時確認し､暑さに備えることも対策に含まれます。</strong></p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer class="bg-gray-800 text-white py-8 text-center">
+        <p>&copy; 2024 総社消防救急隊 熱中症対応資料. All rights reserved.</p>
+        <p class="text-sm text-gray-400 mt-2">この資料は研修目的で作成されたものです。実際の医療行為については、所属機関の指示・規定に従ってください。</p>
+    </footer>
+
+    <script>
+        // アコーディオンの動作
+        const accordionButtons = document.querySelectorAll('.accordion-button');
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.toggle('active');
+            });
+        });
+
+        // ヘッダーナビゲーション及び左側目次からのスクロール位置調整
+        document.querySelectorAll('#header-navigation a[href^="#"], #table-of-contents a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerNavHeight = document.getElementById('header-navigation').offsetHeight;
+                    let offset = headerNavHeight + 20; // 基本のオフセット (ナビゲーションバーの高さ + 少しの余白)
+                    
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
